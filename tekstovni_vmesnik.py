@@ -14,25 +14,24 @@ def vnos_besede():
         return vnos_besede()
 
 def izpis_zmage():
-    return('Bravo!')
+    return('Bravo!\n')
 
 def izpis_poraza():
-    return('Narobe!')
+    return('Narobe!\n')
 
 
 def zazeni_kviz():
-    kviz = model.nova_igra()
     print('Pozdravljeni v kvizu iz italijanskih pravilnih glagolov!')
-
-    print(izpis_igre(kviz))
-    zapis = vnos_besede()
-    stanje = kviz.preverba(zapis)
-    if stanje == model.PRAVILNO:
-        print(izpis_zmage())
-    elif stanje == model.NAPACNO:
-        print(izpis_poraza())
-    else:
-        print('Bwo')
+    while True:
+        kviz = model.nova_igra()
+        print(50 * '=')
+        print(izpis_igre(kviz))
+        zapis = vnos_besede()
+        stanje = kviz.preverba(zapis)
+        if stanje == model.PRAVILNO:
+            print(izpis_zmage())
+        elif stanje == model.NAPACNO:
+            print(izpis_poraza())
 
 
 zazeni_kviz()
