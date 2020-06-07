@@ -17,7 +17,7 @@ def izpis_zmage():
     return('Bravo!\n')
 
 def izpis_poraza():
-    return('Narobe!\n')
+    return('Narobe! Poskusite še enkrat:')
 
 
 def zazeni_kviz():
@@ -28,10 +28,12 @@ def zazeni_kviz():
         print(izpis_igre(kviz))
         zapis = vnos_besede()
         stanje = kviz.preverba(zapis)
-        if stanje == model.PRAVILNO:
-            print(izpis_zmage())
-        elif stanje == model.NAPACNO:
+        while stanje != model.PRAVILNO:
             print(izpis_poraza())
+            zapis = vnos_besede()
+            stanje = kviz.preverba(zapis)
+        print(izpis_zmage())
+
 
 
 zazeni_kviz()
